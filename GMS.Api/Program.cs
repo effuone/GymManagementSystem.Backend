@@ -9,6 +9,8 @@ global using System.Text;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Builder;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -93,10 +95,8 @@ else
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
 app.UseRouting();
+app.UseAuthorization();
 app.MapControllers();
 app.UseCors("MyPolicies");
 

@@ -1,5 +1,6 @@
 using AutoMapper;
 using GMS.Data.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GMS.Api.Controllers
 {
@@ -43,6 +44,7 @@ namespace GMS.Api.Controllers
         // {
             
         // }
+        [Authorize("Admin")]
         [HttpPost("/api/managerTypes/")]
         public async Task<ActionResult<ManagerType>> CreateManagerTypeAsync([Required]string managerType)
         {
